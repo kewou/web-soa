@@ -1,6 +1,6 @@
 package com.beezy.websoa.dto;
 
-public abstract class MatiereDto {
+public  class MatiereDto {
 	
 	private NoteDto note;
 

@@ -1,0 +1,14 @@
+<div id="etudiantList">
+ 
+    <h2>Liste des etudiants</h2>
+ 
+    <ul>
+        <li ng-repeat="etudiant in etudiants">
+            <a href="#/etudiant/{{etudiant.id}}">{{etudiant.title}}</a> :
+            {{etudiant.description}}
+        </li>
+    </ul>
+ 
+    <button ng-click="gotoetudiantNewPage()">Ajouter</button>
+ 
+</div>

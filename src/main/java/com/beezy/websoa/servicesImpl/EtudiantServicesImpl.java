@@ -4,12 +4,14 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.apache.commons.collections4.IteratorUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.beezy.websoa.dao.EtudiantDao;
 import com.beezy.websoa.entities.Etudiant;
 import com.beezy.websoa.entities.Unite;
+import com.beezy.websoa.repository.EtudiantRepository;
 import com.beezy.websoa.services.EtudiantServices;
 
 @Transactional
@@ -18,9 +20,12 @@ public class EtudiantServicesImpl implements EtudiantServices{
 		
     @Autowired
     EtudiantDao etudiantDao;
+    
+    @Autowired
+    EtudiantRepository etuRepo;
 
 	public List<Etudiant> listEtudiant() {		
-		return etudiantDao.list();
+		return IteratorUtils.toList(etuRepo.findAll().iterator());
 	}
 
 	public boolean saveOrUpdate(Etudiant etudiant) {		
@@ -28,13 +33,13 @@ public class EtudiantServicesImpl implements EtudiantServices{
 	}
 
 	@Override
-	public void delete(int id) {
-		etudiantDao.delete(id);		
+	public void delete(Long id) {
+		etuRepo.delete(id);		
 	}
 
 	@Override
-	public Etudiant getEtudiantById(int id) {
-		return etudiantDao.getEtudiantById(id);
+	public Etudiant getEtudiantById(Long id) {
+		return etuRepo.findById(id);
 	}
 
 	@Override
@@ -48,8 +53,14 @@ public class EtudiantServicesImpl implements EtudiantServices{
 	}
 
 	@Override
-	public List<Unite> listUniteByIdEtudiant(int id) {		
-		return etudiantDao.listUnite(id);
+	public List<Unite> listUniteByIdEtudiant(Long id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
+
+//	@Override
+//	public List<Unite> listUniteByIdEtudiant(Long id) {		
+//		return etudiantDao.listUnite((id));
+//	}
 
 }
