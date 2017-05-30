@@ -25,11 +25,5 @@ public class HelloController {
 	}
 	
 	
-    @RequestMapping(value = "/etudiants", method = RequestMethod.GET)
-    public String listetudiants(Model model) {
-        model.addAttribute("etudiant", new Etudiant());
-        model.addAttribute("listetudiants", this.etudiantService.listEtudiant());        
-        return "etudiants";
-    }	
 	
 }

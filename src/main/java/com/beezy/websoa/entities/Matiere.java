@@ -34,7 +34,7 @@ public class Matiere {
     
 	@ManyToOne
 	@JoinColumns({@JoinColumn(name = "unite_owner", referencedColumnName = "id")})		
-	private Unite owner;
+	private Etudiant owner;
 
 	public List<Note> getNotes() {
 		return notes;

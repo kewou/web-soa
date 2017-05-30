@@ -11,7 +11,7 @@ public interface EtudiantServices {
 	public List<Unite> listUniteByIdEtudiant(Long id);
 	public void delete(Long id);
 	public boolean saveOrUpdate(Etudiant etudiant);
-	public Etudiant getEtudiantById(Long id);
+	public Etudiant getEtudiantById(int id);
 	public void addEtudiant(Etudiant e);
 	public void updateEtudiant(Etudiant e);
 

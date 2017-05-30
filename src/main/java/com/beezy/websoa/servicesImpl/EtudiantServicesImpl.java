@@ -38,8 +38,8 @@ public class EtudiantServicesImpl implements EtudiantServices{
 	}
 
 	@Override
-	public Etudiant getEtudiantById(Long id) {
-		return etuRepo.findById(id);
+	public Etudiant getEtudiantById(int id) {
+		return etudiantDao.getEtudiantById(id);
 	}
 
 	@Override

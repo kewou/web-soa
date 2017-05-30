@@ -11,13 +11,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 import com.beezy.websoa.dto.EtudiantDto;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 
 @Entity
 @Table(name = "Etudiant")
+@JsonInclude(JsonInclude.Include.NON_EMPTY) 
 public class Etudiant {
 	
 	@Id
@@ -41,27 +43,23 @@ public class Etudiant {
     private String pass;    
 	
     
-//    @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
-//	private List<Comment> comments;
-    
-    
+          
     @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
-	private List<Matiere> matieres;
+    private List<Matiere> matieres;
     
 //  @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
 //	private List<Role> roles;
         
     
-    public List<Matiere> getMatieres() {
-		return matieres;
-	}
+//    public List<Matiere> getMatieres() {
+//		return matieres;
+//	}
+//
+//	public void setMatieres(List<Matiere> matieres) {
+//		this.matieres = matieres;
+//	}
 
-	public void setMatieres(List<Matiere> matieres) {
-		this.matieres = matieres;
-	}
-
-    
-	    	   	    
+    	    	   	   
 //    public List<Comment> getComment() {
 //		return comments;
 //	}

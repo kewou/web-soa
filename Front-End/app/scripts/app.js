@@ -11,6 +11,7 @@
 
  var app = angular.module("frontEndApp",[
     'etudiantController',
+    'etudiantService',     
     'ngAnimate',
     'ngCookies',
     'ngResource',
@@ -23,7 +24,7 @@
 
     $routeProvider
       .when('/etudiants', {
-        controller: 'MainCtrl', 
+        controller: 'etudiantController', 
         templateUrl: 'views/main.html'
       })
       .otherwise({
