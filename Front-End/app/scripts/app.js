@@ -11,7 +11,7 @@
 
  var app = angular.module("frontEndApp",[
     'etudiantController',
-    'etudiantService',     
+    'etudiantService',    
     'ngAnimate',
     'ngCookies',
     'ngResource',
@@ -23,9 +23,9 @@
   app.config(function($routeProvider) {    
 
     $routeProvider
-      .when('/etudiants', {
+      .when('/lesEtudiants', {
         controller: 'etudiantController', 
-        templateUrl: 'views/main.html'
+        templateUrl: 'views/etudiants.html'
       })
       .otherwise({
         redirectTo: '/'

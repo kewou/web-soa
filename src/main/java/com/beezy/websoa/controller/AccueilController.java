@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,6 +15,7 @@ import com.beezy.websoa.entities.Etudiant;
 import com.beezy.websoa.services.EtudiantServices;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class AccueilController {
 	
 	@Autowired
@@ -36,6 +39,13 @@ public class AccueilController {
     @RequestMapping(value="/etudiant/{id}",method = RequestMethod.GET)
     public Etudiant getEtudiant(@PathVariable("id") int id) {
         return etuService.getEtudiantById(id);
-    } 
+    }
+    
+    @RequestMapping(value = "/etudiant/ajouter", method = RequestMethod.POST)
+    public String addEtudiant(@ModelAttribute("etudiant") Etudiant e) {
+    	this.etuService.addEtudiant(e);
+        return "redirect:/etudiants";
+
+    }
     
 }

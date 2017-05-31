@@ -3,9 +3,17 @@
 var etudiantService= angular.module('etudiantService',[])
 
 
-etudiantService.service('etudiantService', function() {
-    this.myFunc = function ($resource) {
-        return $resource('http://localhost:8090/etudiants')
-    }
-});
+etudiantService.factory('etudiantService',[
+	"$resource",
+	 function($resource){
+	 	return $resource("http://localhost:8090/etudiants", {},{
+	 		query:{method: "GET", isArray: true},
+	 		save: {method:'POST'},
+	 		remove: {method:'DELETE'},
+	 		get:    {method:'GET'}
+
+	 	});
+	 }
+ 
+]);
 
