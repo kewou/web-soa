@@ -42,13 +42,12 @@ public class Etudiant {
     @Column(name ="pass")
     private String pass;    
 	
-    
-          
+              
     @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
     private List<Matiere> matieres;
     
-//  @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
-//	private List<Role> roles;
+    @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
+	private List<Role> roles;
         
     
 //    public List<Matiere> getMatieres() {

@@ -31,14 +31,19 @@ public class AccueilController {
         return "accueil";
     }
     
-    @RequestMapping(value="/etudiants",method = RequestMethod.GET)
+    @RequestMapping(value="/lesEtudiants",method = RequestMethod.GET)
     public List<Etudiant> etudiants() {
         return etuService.listEtudiant();
     }
     
-    @RequestMapping(value="/etudiant/{id}",method = RequestMethod.GET)
+    @RequestMapping(value="/lesEtudiants/{id}",method = RequestMethod.GET)
     public Etudiant getEtudiant(@PathVariable("id") int id) {
         return etuService.getEtudiantById(id);
+    }
+    
+    @RequestMapping(value="/etudiants/delete/{id}",method = RequestMethod.GET)
+    public void deleteEtudiant(@PathVariable("id") int id) {
+        etuService.delete( (long) id);
     }
     
     @RequestMapping(value = "/etudiant/ajouter", method = RequestMethod.POST)

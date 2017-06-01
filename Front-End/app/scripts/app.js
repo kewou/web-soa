@@ -21,12 +21,15 @@
   ]);
 
   app.config(function($routeProvider) {    
-
     $routeProvider
       .when('/lesEtudiants', {
         controller: 'etudiantController', 
         templateUrl: 'views/etudiants.html'
       })
+      .when('/lesEtudiants/:id', {
+        controller: 'etudiantController', 
+        templateUrl: 'views/etudiant.html'
+      })      
       .otherwise({
         redirectTo: '/'
       });

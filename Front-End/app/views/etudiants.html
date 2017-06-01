@@ -25,13 +25,15 @@
 
 	<div id="part_right">
 		<h1>Inscrire un étudiant :</h1>
-		<div id="inputInscription">
-		    <div><input ng-model="etudiant.nom" ></div>
-		    <div><input ng-model="etudiant.prenom"></div>
-		    <div><input ng-model="etudiant.dateNaissance"></div>
-		    <div><input ng-model="etudiant.username"></div>
-		    <div><input ng-model="etudiant.pass"></div>
-		    <button ng-click="addItem()" class="btnBlue">Ajouter</button>
-		</div>
+		<form ng-submit="addItem(nom,prenom,dateNaissance,username,pass)" > 
+			<div id="inputInscription">
+			    <div><input ng-model="nom" required></div>
+			    <div><input ng-model="prenom" required></div>
+			    <div><input ng-model="dateNaissance" required></div>
+			    <div><input ng-model="username" required></div>
+			    <div><input ng-model="pass" required></div>
+			    <input type="submit" id="submit" value="Ajouter" class="btnBlue"/>			    
+			</div>
+		</form>
 	</div>
 </div>

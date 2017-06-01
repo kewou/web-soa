@@ -11,17 +11,20 @@
 
 var etudiantController = angular.module("etudiantController",[])
 
-etudiantController.controller('etudiantController', function($scope,etudiantService) {
+etudiantController.controller('etudiantController', function($scope,$routeParams,etudiantService) {
   	$scope.name = "World";
- 	$scope.etudiants = etudiantService.query(); 
-	$scope.addItem = function(){
- 		var etudiant = {nom:$scope.etudiant.nom,
- 						prenom: $scope.etudiant.prenom};
+ 	$scope.etudiants = etudiantService.query();
+ 	$scope.etudiant = etudiantService.get({ id:$routeParams.id });
+ 	
 
- 		etudiantService.create(etudiant,function(data) {
-
- 		});
-
- 	};
+ 	$scope.addItem= function(nom,prenom,dateNaissance,username,pass) {
+    	var etudiant= {};    
+      	etudiant.nom = nom;
+      	etudiant.prenom = prenom;
+      	etudiant.dateNaissance = dateNaissance;
+      	etudiant.username=username;
+      	etudiant.pass=pass;
+        etudiantService.save(etudiant);
+        $scope.etudiants.push(etudiant);
+    }
 });
-
