@@ -10,7 +10,7 @@ public interface EtudiantDao {
 	public void addEtudiant(Etudiant p_etudiant);	
 	public Etudiant getEtudiantById(int id);	
 	public List<Etudiant> list();	
-	public void delete(int id);	
+	public void delete(long id);	
 	public boolean saveOrUpdate(Etudiant p_etudiant);	
 	public List<Unite> listUnite(int id);
 

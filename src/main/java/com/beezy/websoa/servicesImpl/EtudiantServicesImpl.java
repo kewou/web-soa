@@ -32,10 +32,6 @@ public class EtudiantServicesImpl implements EtudiantServices{
 		return etudiantDao.saveOrUpdate(etudiant);
 	}
 
-	@Override
-	public void delete(Long id) {
-		etuRepo.delete(id);		
-	}
 
 	@Override
 	public Etudiant getEtudiantById(int id) {
@@ -56,6 +52,11 @@ public class EtudiantServicesImpl implements EtudiantServices{
 	public List<Unite> listUniteByIdEtudiant(Long id) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void delete(Long id) {
+		etudiantDao.delete(id);	
 	}
 
 //	@Override

@@ -14,44 +14,32 @@ import com.beezy.websoa.entities.Etudiant;
 import com.beezy.websoa.services.EtudiantServices;
 
 @RestController
+@RequestMapping("/etudiants")
 @CrossOrigin(origins = "*")
 public class AccueilController {
-	
+
 	@Autowired
-	EtudiantServices etuService;
-	
-	@RequestMapping("/")
-	public String index(){
-		return "Yeah Spring Boot !";
+	private EtudiantServices etuService;
+
+	@RequestMapping(method = RequestMethod.GET)
+	public List<Etudiant> etudiants()  {
+		return etuService.listEtudiant();
 	}
-	
-    @RequestMapping(value="/accueil",method = RequestMethod.GET)
-    public String accueil() {
-        return "accueil";
-    }
-    
-    @RequestMapping(value="/lesEtudiants",method = RequestMethod.GET)
-    public List<Etudiant> etudiants() {
-        return etuService.listEtudiant();
-    }
-    
-    @RequestMapping(value="/lesEtudiants/{id}",method = RequestMethod.GET)
-    public Etudiant getEtudiant(@PathVariable("id") int id) {
-        return etuService.getEtudiantById(id);
-    }
-    
-    @RequestMapping(value="/etudiants/delete/{id}",method = RequestMethod.GET)
-    public void deleteEtudiant(@PathVariable("id") int id) {
-        etuService.delete( (long) id);
-    }
-    
-    @RequestMapping(value = "/lesEtudiants/ajouter", method = RequestMethod.POST)
-    public List<Etudiant> addEtudiant(@RequestBody Etudiant e) {
-    	this.etuService.addEtudiant(e);
-    	return etuService.listEtudiant();
 
-    }
-    
+	@RequestMapping(method = RequestMethod.POST)
+	public List<Etudiant> addEtudiant(@RequestBody Etudiant e) throws Exception{
+		this.etuService.addEtudiant(e);
+		return etuService.listEtudiant();
+	}
 
-    
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	public Etudiant getEtudiant(@PathVariable("id") int id) throws Exception{
+		return etuService.getEtudiantById(id);
+	}
+
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+	public long deleteEtudiant(@PathVariable("id") int id) throws Exception{
+		etuService.delete((long) id);
+		return id;
+	}
 }

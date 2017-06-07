@@ -40,9 +40,9 @@ public class EtudiantDaoImpl implements EtudiantDao{
 		return uniteList;
 	}
 	
-	public void delete(int id){
+	public void delete(long id){
 			Session session=sessionFactory.getCurrentSession();
-			Etudiant e = (Etudiant) session.load(Etudiant.class, new Integer(id));
+			Etudiant e = (Etudiant) session.load(Etudiant.class, new Integer((int) id));
 			session.delete(e);
 	}
 

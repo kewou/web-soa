@@ -33,8 +33,8 @@ public class Matiere {
 	private List<Note> notes;
     
 	@ManyToOne
-	@JoinColumns({@JoinColumn(name = "unite_owner", referencedColumnName = "id")})		
-	private Unite owner;
+	@JoinColumns({@JoinColumn(name = "user_owner", referencedColumnName = "id")})		
+	private Etudiant owner;
 
 	public List<Note> getNotes() {
 		return notes;

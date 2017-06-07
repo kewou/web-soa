@@ -29,12 +29,12 @@ public class Unite {
 	@Column(name = "credit")
     private int credit;
 
-	@ManyToOne
-	@JoinColumns({@JoinColumn(name = "etudiant_owner", referencedColumnName = "id")})		
-	private Etudiant owner;	
-	
-    @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
-	private List<Matiere> matieres;
+//	@ManyToOne
+//	@JoinColumns({@JoinColumn(name = "etudiant_owner", referencedColumnName = "id")})		
+//	private Etudiant owner;	
+//	
+//    @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
+//	private List<Matiere> matieres;
 	
 	
 	public int getId() {
@@ -55,12 +55,12 @@ public class Unite {
 	public void setCredit(int credit) {
 		this.credit = credit;
 	}
-	public Etudiant getOwner() {
-		return owner;
-	}
-	public void setOwner(Etudiant owner) {
-		this.owner = owner;
-	}
+//	public Etudiant getOwner() {
+//		return owner;
+//	}
+//	public void setOwner(Etudiant owner) {
+//		this.owner = owner;
+//	}
 	
 	
 	
