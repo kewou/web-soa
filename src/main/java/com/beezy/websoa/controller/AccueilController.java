@@ -3,6 +3,8 @@ package com.beezy.websoa.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,19 +24,25 @@ public class AccueilController {
 	private EtudiantServices etuService;
 
 	@RequestMapping(method = RequestMethod.GET)
-	public List<Etudiant> etudiants()  {
-		return etuService.listEtudiant();
+	public ResponseEntity<List<Etudiant>> etudiants()  throws Exception{
+		return new ResponseEntity<List<Etudiant>>(etuService.listEtudiant(), HttpStatus.OK);
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public List<Etudiant> addEtudiant(@RequestBody Etudiant e) throws Exception{
+	public Etudiant addEtudiant(@RequestBody Etudiant e) throws Exception{
 		this.etuService.addEtudiant(e);
-		return etuService.listEtudiant();
+		return e;
+	}
+	
+	@RequestMapping(method = RequestMethod.PUT)
+	public Etudiant updateEtudiant(@RequestBody Etudiant e) throws Exception{
+		this.etuService.updateEtudiant(e);
+		return e;
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public Etudiant getEtudiant(@PathVariable("id") int id) throws Exception{
-		return etuService.getEtudiantById(id);
+	public ResponseEntity<Etudiant> getEtudiant(@PathVariable("id") int id) throws Exception{
+		return new ResponseEntity<Etudiant>(etuService.getEtudiantById(id), HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)

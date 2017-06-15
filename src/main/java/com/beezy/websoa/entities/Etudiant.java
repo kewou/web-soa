@@ -50,13 +50,13 @@ public class Etudiant {
 	private List<Role> roles;
         
     
-//    public List<Matiere> getMatieres() {
-//		return matieres;
-//	}
-//
-//	public void setMatieres(List<Matiere> matieres) {
-//		this.matieres = matieres;
-//	}
+    public List<Matiere> getMatieres() {
+		return matieres;
+	}
+
+	public void setMatieres(List<Matiere> matieres) {
+		this.matieres = matieres;
+	}
 
     	    	   	   
 //    public List<Comment> getComment() {
