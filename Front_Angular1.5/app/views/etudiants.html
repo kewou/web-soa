@@ -1,0 +1,23 @@
+      <h1>Les étudiants inscrit</h1>
+      <div class="span6">
+          <table class="tg">
+            <thead>
+              <tr>
+                  <th width="80">ID</th>
+                  <th width="120">Nom</th>
+                  <th width="120">Prenom</th>        
+                  <th width="60">Action</th>              
+
+              </tr>
+            </thead>
+            <tbody>  
+              <tr ng-repeat="etudiant in etuCtrl.etudiants">
+                  <td><span ng-bind="etudiant.id"></span></td>
+                  <td><span ng-bind="etudiant.nom"></span></td>
+                  <td><span ng-bind="etudiant.prenom"></span></td>
+                  <td><button ng-click="etuCtrl.showItem(etudiant.id)" class="btn btn-success">Editer</button></td>             
+                  <td><button ng-click="etuCtrl.deleteItem(etudiant.id)" class="btn btn-danger">Supprimer</button></td>                          
+              </tr>
+            </tbody>    
+          </table>    
+      </div>

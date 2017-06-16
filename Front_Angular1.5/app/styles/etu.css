@@ -1,0 +1,74 @@
+#globalDiv{
+    margin-left:25%;
+}
+
+.footer{
+    margin-top:5%;
+}
+
+
+.tg  {border-collapse:collapse;border-spacing:0;border-color:#ccc;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#f0f0f0;}
+.tg .tg-4eph{background-color:#f9f9f9}
+
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+     margin: 10px 15px 10px 8px;
+}
+.btn{
+background-color: #f44336;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+     margin: 10px 15px 10px 8px;
+}
+
+.btnBlue{
+background-color: blue;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+     margin: 10px 15px 10px 8px;
+}
+.table {
+border: 1px; 
+
+}
+.th{ width:10%; 
+}
+.value{
+margin: 10px 15px 10px 8px;
+}
+
+
+#part_left{
+	width: 45%;
+	float:left;
+}
+
+#part_right{
+	width: 45%;
+	float:right;
+}
+	
+#global::after {
+    content:"";
+    display:block;
+    clear:both;
+}

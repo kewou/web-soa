@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>My AngularJS App</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+  <link rel="stylesheet" href="app.css">
+  <link rel="stylesheet" href="styles/etu.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+  <body ng-app="myApp" >
+    <!--[if lte IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->  
+      
+      <div id="globalDiv" ng-controller="etuController as etuCtrl" > 
+        <h1>Inscrire un étudiant</h1>
+        <form ng-submit="etuCtrl.addItem()" class="form-horizontal" > 
+          <div id="inputInscription" class="row">
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="nom">Nom:</label>
+              <input ng-model="etuCtrl.etudiant.nom" placeholder="Entrez un nom" required>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="nom">Prenom:</label>
+              <input ng-model="etuCtrl.etudiant.prenom" placeholder="Entrez un prenom" required>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="nom">Naissance:</label>
+              <input ng-model="etuCtrl.etudiant.dateNaissance" placeholder="Entrez une date" required>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="nom">Pseudo:</label>
+              <input ng-model="etuCtrl.etudiant.username" placeholder="Entrez un Pseudo" required>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="nom">Mot de passe:</label>
+              <input ng-model="etuCtrl.etudiant.pass" type="password" placeholder="Entrez un mot de passe" required>
+            </div>
+            <div class="form-group">                  
+                <div class="col-sm-offset-2 col-sm-10">
+                  <input type="submit" id="submit" value="Ajouter" class="btn btn-primary"/>          
+                </div>
+            </div>
+          </div>
+        </form>      
+      <h1>Les étudiants inscrit</h1>
+      <div class="span6">
+          <table class="tg">
+            <thead>
+              <tr>
+                  <th width="80">ID</th>
+                  <th width="120">Nom</th>
+                  <th width="120">Prenom</th>        
+                  <th width="60">Action</th>              
+
+              </tr>
+            </thead>
+            <tbody>  
+              <tr ng-repeat="etudiant in etuCtrl.etudiants">
+                  <td><span ng-bind="etudiant.id"></span></td>
+                  <td><span ng-bind="etudiant.nom"></span></td>
+                  <td><span ng-bind="etudiant.prenom"></span></td>
+                  <td><button ng-click="etuCtrl.editItem(etudiant.id)" class="btn btn-success">Editer</button></td>             
+                  <td><button ng-click="etuCtrl.deleteItem(etudiant.id)" class="btn btn-danger">Supprimer</button></td>                          
+              </tr>
+            </tbody>    
+          </table>    
+      </div>
+
+      <div class="footer">
+        <div class="container">
+          <p><span class="glyphicon glyphicon-heart"></span>Footer</p>
+        </div>
+      </div>
+    </div>    
+
+  
+
+   
+
+  <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+  -->
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/lodash/dist/lodash.min.js"></script>
+  <script src="bower_components/restangular/dist/restangular.min.js"></script>
+  <script src="app.js"></script>
+  <script src="scripts/controllers/etuController.js"></script>
+  <script src="scripts/controllers/accueilController.js"></script>
+  <script src="scripts/services/etuService.js"></script>   
+  <script src="components/version/version.js"></script>
+  <script src="components/version/version-directive.js"></script>
+  <script src="components/version/interpolate-filter.js"></script>   
+</body>
+</html>
