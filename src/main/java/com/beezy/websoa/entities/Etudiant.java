@@ -13,13 +13,19 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.beezy.websoa.dto.EtudiantDto;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+
+import lombok.Getter;
+import lombok.Setter;
+
+
 
 
 @Entity
 @Table(name = "Etudiant")
-@JsonInclude(JsonInclude.Include.NON_EMPTY) 
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
+@Getter
+@Setter
 public class Etudiant {
 	
 	@Id
@@ -63,35 +69,8 @@ public class Etudiant {
 //		return comments;
 //	}
 
-	public int getId() {
- 		return id;
- 	}
- 	public void setId(int id) {
- 		this.id = id;
- 	}
- 	public String getNom() {
- 		return nom;
- 	}
- 	public void setNom(String nom) {
- 		this.nom = nom;
- 	}
- 	public String getPrenom() {
- 		return prenom;
- 	}
- 	public void setPrenom(String prenom) {
- 		this.prenom = prenom;
- 	}
- 	public Date getDateNaissance() {
- 		return dateNaissance;
- 	}
- 	public void setDateNaissance(Date dateNaissance) {
- 		this.dateNaissance = dateNaissance;
- 	}
 
-	@Override
-	public String toString() {
-		return "Etudiant [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", dateNaissance=" + dateNaissance + "]";
-	}
+
 		
 	public EtudiantDto convertEtudiantToDto(){
 		EtudiantDto EtudiantTO = new EtudiantDto();
@@ -103,21 +82,7 @@ public class Etudiant {
 		return EtudiantTO;
 	}
 
-	public String getUsername() {
-		return username;
-	}
 
-	public void setEtudiantname(String username) {
-		this.username = username;
-	}
-
-	public String getPass() {
-		return pass;
-	}
-
-	public void setPass(String pass) {
-		this.pass = pass;
-	}
 
 //	public List<Comment> getComments() {
 //		return comments;
