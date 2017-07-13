@@ -8,10 +8,10 @@ import org.apache.commons.collections4.IteratorUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.beezy.websoa.dao.EtudiantDao;
-import com.beezy.websoa.entities.Etudiant;
-import com.beezy.websoa.entities.Unite;
-import com.beezy.websoa.repository.EtudiantRepository;
+import com.beezy.websoa.data.dao.EtudiantDao;
+import com.beezy.websoa.data.entities.Etudiant;
+import com.beezy.websoa.data.entities.Unite;
+import com.beezy.websoa.data.repository.EtudiantRepository;
 import com.beezy.websoa.services.EtudiantServices;
 
 @Transactional
@@ -28,14 +28,9 @@ public class EtudiantServicesImpl implements EtudiantServices{
 		return IteratorUtils.toList(etuRepo.findAll().iterator());
 	}
 
-	public boolean saveOrUpdate(Etudiant etudiant) {		
-		return etudiantDao.saveOrUpdate(etudiant);
-	}
-
-
 	@Override
-	public Etudiant getEtudiantById(int id) {
-		return etudiantDao.getEtudiantById(id);
+	public Etudiant getEtudiantById(Long id) {
+		return etuRepo.findById(id);
 	}
 
 	@Override
@@ -45,7 +40,7 @@ public class EtudiantServicesImpl implements EtudiantServices{
 
 	@Override
 	public void updateEtudiant(Etudiant e) {
-		etudiantDao.saveOrUpdate(e);		
+		etuRepo.saveAndFlush(e);		
 	}
 
 	@Override
@@ -56,12 +51,8 @@ public class EtudiantServicesImpl implements EtudiantServices{
 
 	@Override
 	public void delete(Long id) {
-		etudiantDao.delete(id);	
+		etuRepo.delete(id);
 	}
 
-//	@Override
-//	public List<Unite> listUniteByIdEtudiant(Long id) {		
-//		return etudiantDao.listUnite((id));
-//	}
 
 }

@@ -1,8 +1,8 @@
-package com.beezy.websoa.dao;
+package com.beezy.websoa.data.dao;
 
 import java.util.List;
 
-import com.beezy.websoa.entities.Unite;
+import com.beezy.websoa.data.entities.Unite;
 
 
 

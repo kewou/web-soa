@@ -5,8 +5,6 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
-import com.beezy.websoa.entities.Etudiant;
-import com.beezy.websoa.repository.EtudiantRepository;
 import com.beezy.websoa.services.EtudiantServices;
 
 

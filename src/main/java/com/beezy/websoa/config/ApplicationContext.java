@@ -71,7 +71,7 @@ public class ApplicationContext extends WebMvcConfigurerAdapter{
     public LocalSessionFactoryBean sessionFactory() {
     	LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
     	sessionFactory.setDataSource(getDataSource());
-    	sessionFactory.setPackagesToScan(new String[] { "com.beezy.websoa.entities" });
+    	sessionFactory.setPackagesToScan(new String[] { "com.beezy.websoa.data.entities" });
 		Properties hibernateProperties = new Properties();
 		hibernateProperties.put("hibernate.dialect","org.hibernate.dialect.PostgreSQLDialect");
 		hibernateProperties.put("hibernate.show_sql", "true");

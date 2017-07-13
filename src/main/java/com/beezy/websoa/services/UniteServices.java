@@ -2,7 +2,7 @@ package com.beezy.websoa.services;
 
 import java.util.List;
 
-import com.beezy.websoa.entities.Unite;
+import com.beezy.websoa.data.entities.Unite;
 
 public interface UniteServices {
 	

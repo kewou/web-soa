@@ -7,8 +7,8 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.beezy.websoa.dao.UniteDao;
-import com.beezy.websoa.entities.Unite;
+import com.beezy.websoa.data.dao.UniteDao;
+import com.beezy.websoa.data.entities.Unite;
 import com.beezy.websoa.services.UniteServices;
 
 @Transactional

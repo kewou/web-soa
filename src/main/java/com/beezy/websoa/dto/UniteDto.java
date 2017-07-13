@@ -5,8 +5,8 @@ import java.util.List;
 
 public class UniteDto  {
 	
-	private List<MatiereDto> listMatiere;
+	private List<MatiereDTO> listMatiere;
 	
-	private NoteDto note;
+	private NoteDTO note;
 
 }

@@ -1,4 +1,4 @@
-package com.beezy.websoa.entities;
+package com.beezy.websoa.data.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,10 +10,11 @@ import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "Obligatoire")
-public class Obligatoire {
 
+@Entity
+@Table(name = "Option")
+public class Option {
+	
 	@Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,7 +29,6 @@ public class Obligatoire {
 	@ManyToOne
 	@JoinColumns({@JoinColumn(name = "unite_owner", referencedColumnName = "id")})		
 	private Unite owner;
-	
 	
 	public int getId() {
 		return id;

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.beezy.websoa.entities.Etudiant;
+import com.beezy.websoa.data.entities.Etudiant;
 import com.beezy.websoa.services.EtudiantServices;
 
 @RestController
@@ -42,7 +42,7 @@ public class AccueilController {
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Etudiant> getEtudiant(@PathVariable("id") int id) throws Exception{
-		return new ResponseEntity<Etudiant>(etuService.getEtudiantById(id), HttpStatus.OK);
+		return new ResponseEntity<Etudiant>(etuService.getEtudiantById((long) id), HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)

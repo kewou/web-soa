@@ -12,10 +12,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.beezy.websoa.dao.NoteDao;
-import com.beezy.websoa.dto.NoteDto;
-import com.beezy.websoa.entities.Etudiant;
-import com.beezy.websoa.entities.Matiere;
+import com.beezy.websoa.data.dao.NoteDao;
+import com.beezy.websoa.data.entities.Etudiant;
+import com.beezy.websoa.data.entities.Matiere;
+import com.beezy.websoa.dto.NoteDTO;
 import com.beezy.websoa.services.NoteServices;
 
 
@@ -37,12 +37,12 @@ public class NoteServicesImpl implements NoteServices{
 		Matiere mat = noteDao.getMatiereById(Integer.parseInt(firstLine.split(separateur)[0]));					
 		String line=br.readLine();	
 		while(line!=null){						
-				NoteDto noteTO = new NoteDto();
+				NoteDTO noteTO = new NoteDTO();
 				Etudiant etu = noteDao.getEtudiantById(Integer.parseInt(line.split(separateur)[0]));
 				noteTO.setMatiere_owner(mat);
 				noteTO.setEtudiant_owner(etu);
 				noteTO.setValeur(Integer.parseInt(line.split(separateur)[1]));
-				noteDao.addNote(noteTO.convertToEntitie());
+				//noteDao.addNote(noteTO.convertToEntitie());
 				line=br.readLine();			
 		}
 	}

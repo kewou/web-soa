@@ -1,4 +1,4 @@
-package com.beezy.websoa.daoImpl;
+package com.beezy.websoa.data.daoImpl;
 
 import java.util.List;
 
@@ -9,8 +9,8 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.beezy.websoa.dao.UniteDao;
-import com.beezy.websoa.entities.Unite;
+import com.beezy.websoa.data.dao.UniteDao;
+import com.beezy.websoa.data.entities.Unite;
 
 
 @Repository

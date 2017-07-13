@@ -1,4 +1,4 @@
-package com.beezy.websoa.daoImpl;
+package com.beezy.websoa.data.daoImpl;
 
 import javax.transaction.Transactional;
 
@@ -7,10 +7,10 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.beezy.websoa.dao.NoteDao;
-import com.beezy.websoa.entities.Etudiant;
-import com.beezy.websoa.entities.Matiere;
-import com.beezy.websoa.entities.Note;
+import com.beezy.websoa.data.dao.NoteDao;
+import com.beezy.websoa.data.entities.Etudiant;
+import com.beezy.websoa.data.entities.Matiere;
+import com.beezy.websoa.data.entities.Note;
 
 @Repository
 @Transactional

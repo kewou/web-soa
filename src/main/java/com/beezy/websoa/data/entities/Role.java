@@ -1,4 +1,4 @@
-package com.beezy.websoa.entities;
+package com.beezy.websoa.data.entities;
 
 
 import javax.persistence.Column;
@@ -15,8 +15,6 @@ import javax.persistence.Table;
 @Table(name = "Role")
 public class Role {
     
-    
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -29,28 +27,5 @@ public class Role {
 	@JoinColumns({@JoinColumn(name = "etudiant_owner", referencedColumnName = "id")})		
 	private Etudiant owner;
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getNom() {
-		return nom;
-	}
-
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
-
-	public Etudiant getOwner() {
-		return owner;
-	}
-
-	public void setOwner(Etudiant owner) {
-		this.owner = owner;
-	}
 	
 }
