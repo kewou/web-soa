@@ -30,17 +30,17 @@ public class EtudiantServicesImpl implements EtudiantServices{
 
 	@Override
 	public Etudiant getEtudiantById(Long id) {
-		return etuRepo.findById(id);
+		return etuRepo.findOne(id);
 	}
 
 	@Override
 	public void addEtudiant(Etudiant e) {
-		etudiantDao.addEtudiant(e);		
+		etuRepo.save(e);		
 	}
 
 	@Override
 	public void updateEtudiant(Etudiant e) {
-		etuRepo.saveAndFlush(e);		
+		etuRepo.save(e);		
 	}
 
 	@Override

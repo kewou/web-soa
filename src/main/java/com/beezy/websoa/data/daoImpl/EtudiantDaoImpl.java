@@ -24,6 +24,12 @@ public class EtudiantDaoImpl implements EtudiantDao{
         session.persist(p_etudiant);                                                   
 	}
 	
+	public void deleteEtudiant(long id){
+		Session session=sessionFactory.getCurrentSession();
+		Etudiant e = (Etudiant) session.load(Etudiant.class, new Integer((int) id));
+		session.delete(e);
+	}
+	
 //	public boolean saveOrUpdate(Etudiant etudiant){
 //		Session session =sessionFactory.getCurrentSession();
 //	    session.saveOrUpdate(etudiant);
@@ -43,15 +49,7 @@ public class EtudiantDaoImpl implements EtudiantDao{
 //		return uniteList;
 //	}
 //	
-//	public void delete(long id){
-//			Session session=sessionFactory.getCurrentSession();
-//			Etudiant e = (Etudiant) session.load(Etudiant.class, new Integer((int) id));
-//			session.delete(e);
-//	}
 //
-//	public void setSessionFactory(SessionFactory sessionFactory) {
-//		this.sessionFactory = sessionFactory;
-//	}
 //
 //	@Override
 //	public Etudiant getEtudiantById(int id) {
