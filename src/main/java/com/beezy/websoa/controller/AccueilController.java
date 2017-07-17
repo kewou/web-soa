@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.beezy.websoa.data.entities.Etudiant;
+import com.beezy.websoa.dto.EtudiantDTO;
 import com.beezy.websoa.services.EtudiantServices;
 
 @RestController
@@ -24,8 +25,8 @@ public class AccueilController {
 	private EtudiantServices etuService;
 
 	@RequestMapping(method = RequestMethod.GET)
-	public ResponseEntity<List<Etudiant>> etudiants()  throws Exception{
-		return new ResponseEntity<List<Etudiant>>(etuService.listEtudiant(), HttpStatus.OK);
+	public ResponseEntity<List<EtudiantDTO>> etudiants()  throws Exception{
+		return new ResponseEntity<List<EtudiantDTO>>(etuService.listEtudiant(), HttpStatus.OK);
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
@@ -41,8 +42,8 @@ public class AccueilController {
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public ResponseEntity<Etudiant> getEtudiant(@PathVariable("id") int id) throws Exception{
-		return new ResponseEntity<Etudiant>(etuService.getEtudiantById((long) id), HttpStatus.OK);
+	public ResponseEntity<EtudiantDTO> getEtudiant(@PathVariable("id") int id) throws Exception{
+		return new ResponseEntity<EtudiantDTO>(etuService.getEtudiantById((long) id), HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
