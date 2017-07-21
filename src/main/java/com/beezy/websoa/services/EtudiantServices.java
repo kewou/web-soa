@@ -10,8 +10,8 @@ public interface EtudiantServices {
 	
 	public List<EtudiantDTO> listEtudiant();
 	public List<Unite> listUniteByIdEtudiant(Long id);
-	public void delete(Long id);	
-	public EtudiantDTO getEtudiantById(Long id);
+	public void delete(int id);	
+	public EtudiantDTO getEtudiantById(int id);
 	public void addEtudiant(Etudiant e);
 	public void updateEtudiant(Etudiant e);
 

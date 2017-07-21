@@ -40,7 +40,7 @@ public class EtudiantServicesImpl implements EtudiantServices{
 	}
 
 	@Override
-	public EtudiantDTO getEtudiantById(Long id) {
+	public EtudiantDTO getEtudiantById(int id) {
 		return mapper.map(etuRepo.findOne(id), EtudiantDTO.class) ;
 	}
 
@@ -61,7 +61,7 @@ public class EtudiantServicesImpl implements EtudiantServices{
 	}
 
 	@Override
-	public void delete(Long id) {
+	public void delete(int id) {
 		etuRepo.delete(id);
 	}
 

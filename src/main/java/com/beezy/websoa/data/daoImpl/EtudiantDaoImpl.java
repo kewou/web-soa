@@ -15,20 +15,20 @@ import com.beezy.websoa.data.entities.Etudiant;
 @Transactional
 public class EtudiantDaoImpl implements EtudiantDao{
 
-	@Autowired
-	SessionFactory sessionFactory;
-	
-	@Override
-	public void addEtudiant(Etudiant p_etudiant) {	
-        Session session=sessionFactory.getCurrentSession();
-        session.persist(p_etudiant);                                                   
-	}
-	
-	public void deleteEtudiant(long id){
-		Session session=sessionFactory.getCurrentSession();
-		Etudiant e = (Etudiant) session.load(Etudiant.class, new Integer((int) id));
-		session.delete(e);
-	}
+//	@Autowired
+//	SessionFactory sessionFactory;
+//	
+//	@Override
+//	public void addEtudiant(Etudiant p_etudiant) {	
+//        Session session=sessionFactory.getCurrentSession();
+//        session.persist(p_etudiant);                                                   
+//	}
+//	
+//	public void deleteEtudiant(long id){
+//		Session session=sessionFactory.getCurrentSession();
+//		Etudiant e = (Etudiant) session.load(Etudiant.class, new Integer((int) id));
+//		session.delete(e);
+//	}
 	
 //	public boolean saveOrUpdate(Etudiant etudiant){
 //		Session session =sessionFactory.getCurrentSession();

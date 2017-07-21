@@ -43,12 +43,12 @@ public class AccueilController {
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<EtudiantDTO> getEtudiant(@PathVariable("id") int id) throws Exception{
-		return new ResponseEntity<EtudiantDTO>(etuService.getEtudiantById((long) id), HttpStatus.OK);
+		return new ResponseEntity<EtudiantDTO>(etuService.getEtudiantById(id), HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public long deleteEtudiant(@PathVariable("id") int id) throws Exception{
-		etuService.delete((long) id);
+		etuService.delete(id);
 		return id;
 	}
 }

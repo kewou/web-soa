@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.beezy.websoa.data.entities.Etudiant;
 
 @Repository
-public interface EtudiantRepository extends  CrudRepository<Etudiant, Long>{
+public interface EtudiantRepository extends  CrudRepository<Etudiant, Integer>{
 	
 }
