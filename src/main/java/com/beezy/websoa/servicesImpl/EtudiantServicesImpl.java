@@ -14,12 +14,14 @@ import com.beezy.websoa.data.repository.EtudiantRepository;
 import com.beezy.websoa.dto.EtudiantDTO;
 import com.beezy.websoa.services.EtudiantServices;
 
+import lombok.extern.slf4j.Slf4j;
 import ma.glasnost.orika.MapperFacade;
 import ma.glasnost.orika.MapperFactory;
 import ma.glasnost.orika.impl.DefaultMapperFactory;
 
 @Transactional
 @Service
+@Slf4j
 public class EtudiantServicesImpl implements EtudiantServices{		
     
     @Autowired
@@ -35,7 +37,8 @@ public class EtudiantServicesImpl implements EtudiantServices{
     
 
 	public List<EtudiantDTO> listEtudiant() {
-		List<Etudiant> etuList=IteratorUtils.toList(etuRepo.findAll().iterator());		
+		List<Etudiant> etuList=IteratorUtils.toList(etuRepo.findAll().iterator());
+		log.info("Liste des étudiants inscrit");
 		return mapper.mapAsList(etuList, EtudiantDTO.class);
 	}
 
