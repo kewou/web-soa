@@ -44,13 +44,6 @@ public class WebSoaApplication {
             
             System.out.println(Calendar.getInstance().getTimeInMillis());
             
-            ArrayList<Integer> listeInt = new ArrayList<Integer>();
-            listeInt.add(3);
-            listeInt.add(6);
-            listeInt.add(9);
-            for(int i=0;i<listeInt.size()-1;i++){
-            	System.out.println(listeInt.get(i)+"-"+listeInt.get(i+1));
-            }
             
                        
             

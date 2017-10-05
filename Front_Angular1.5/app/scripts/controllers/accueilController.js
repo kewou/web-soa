@@ -5,6 +5,6 @@ var accueilController = angular.module("accueilController",[])
 accueilController.controller('accueilController', function(Restangular) {
 
 	var accC = this;
-  	accC.name = "test";
+  	accC.titrePage = "Accueil";
 
 });	

@@ -9,23 +9,12 @@ angular.module('myApp', [
   'restangular'
 ]).
 config(['$locationProvider', '$routeProvider', 'RestangularProvider', function($locationProvider, $routeProvider, RestangularProvider) {
-    RestangularProvider.addResponseInterceptor(function(data, operation, what, url, response, deferred) {
-    if(response.status===200){
-      console.log("Request ok");
-    }else if(response.status===200){
-      console.log("Request ko");
-    }
-    
-
-    return data;
-  });
-
-  $locationProvider.hashPrefix('!');
-
-    $routeProvider
-      .when('/accueil', {
-        controller: 'etuController as etuCtrl', 
-        templateUrl: 'index.html'
+      $routeProvider
+      .when('/connexion', {        
+        templateUrl: 'views/usersViews/connexion.html'
+      })  
+      .when('/inscription', {        
+        templateUrl: 'views/usersViews/inscription.html'
       })    
       .when('/etudiants/:id', {
         controller: 'etuController', 
@@ -38,6 +27,19 @@ config(['$locationProvider', '$routeProvider', 'RestangularProvider', function($
       .otherwise({
         redirectTo: '/'
       });
+    RestangularProvider.addResponseInterceptor(function(data, operation, what, url, response, deferred) {
+      if(response.status===200){
+        console.log("Request ok");
+      }else{
+        console.log("Request ko");
+      }
+      
+      return data;
+    });
+
+    $locationProvider.hashPrefix('!');
+
+
 }]);
 
 
