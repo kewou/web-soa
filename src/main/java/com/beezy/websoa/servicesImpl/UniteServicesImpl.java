@@ -4,47 +4,37 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.beezy.websoa.data.dao.UniteDao;
 import com.beezy.websoa.data.entities.Unite;
 import com.beezy.websoa.services.UniteServices;
 
 @Transactional
 @Service
-public class UniteServicesImpl implements UniteServices{
-	
-    @Autowired
-    UniteDao UniteDao;
+public class UniteServicesImpl implements UniteServices {
 
-	public List<Unite> listUnite() {		 
-		return UniteDao.list();
-	}
-
-	public UniteDao getUniteDao() {
-		return UniteDao;
-	}
-
-	public void setUniteDao(UniteDao UniteDao) {
-		this.UniteDao = UniteDao;
+	@Override
+	public List<Unite> listUnite() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
 	public void delete(int id) {
-		UniteDao.delete(id);		
+		// TODO Auto-generated method stub
+
 	}
 
 	@Override
 	public Unite getUniteById(int id) {
-		return UniteDao.getUniteById(id);
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
-	public void addUnite(Unite e) {
-		UniteDao.addUnite(e);		
-	}
+	public void addUnite(Unite u) {
+		// TODO Auto-generated method stub
 
-	
+	}
 
 }

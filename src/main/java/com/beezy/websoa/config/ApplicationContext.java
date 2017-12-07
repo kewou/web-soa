@@ -24,83 +24,77 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 @EnableWebMvc
 @ComponentScan("com.beezy.websoa")
 @EnableTransactionManagement
-public class ApplicationContext extends WebMvcConfigurerAdapter{
-	
-	
+public class ApplicationContext extends WebMvcConfigurerAdapter {
+
 	@Bean(name = "multipartResolver")
-	public CommonsMultipartResolver multipartResolver() {	    
-	    CommonsMultipartResolver multipartResolver 
-	            = new CommonsMultipartResolver();
-	    return multipartResolver;
+	public CommonsMultipartResolver multipartResolver() {
+		CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
+		return multipartResolver;
 	}
-    
 
 	@Bean
 	public InternalResourceViewResolver getViewResolver() {
-		InternalResourceViewResolver viewResolver =  new InternalResourceViewResolver();		
+		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
 		viewResolver.setPrefix("/WEB-INF/vues/");
 		viewResolver.setSuffix(".jsp");
 		return viewResolver;
 	}
-	
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/static/**").addResourceLocations("/static/");
-    }
-	
+
+	@Override
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+		registry.addResourceHandler("/static/**").addResourceLocations("/static/");
+	}
+
 	@Bean
-	public ReloadableResourceBundleMessageSource getMessageSource(){
+	public ReloadableResourceBundleMessageSource getMessageSource() {
 		ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
 		messageSource.setBasename("classpath:messages");
 		messageSource.setDefaultEncoding("UTF-8");
 		return messageSource;
 	}
-	
+
 	@Bean
-	public BasicDataSource getDataSource(){
+	public BasicDataSource getDataSource() {
 		BasicDataSource dataSource = new BasicDataSource();
 		dataSource.setDriverClassName("org.postgresql.Driver");
 		dataSource.setUrl("jdbc:postgresql://localhost:5432/postgres");
 		dataSource.setUsername("postgres");
-		dataSource.setPassword("beezyAdmin");
+		dataSource.setPassword("admin");
 		return dataSource;
 	}
-	
-	
-    @Bean
-    public LocalSessionFactoryBean sessionFactory() {
-    	LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
-    	sessionFactory.setDataSource(getDataSource());
-    	sessionFactory.setPackagesToScan(new String[] { "com.beezy.websoa.data.entities" });
+
+	@Bean
+	public LocalSessionFactoryBean sessionFactory() {
+		LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
+		sessionFactory.setDataSource(getDataSource());
+		sessionFactory.setPackagesToScan(new String[] { "com.beezy.websoa.data.entities" });
 		Properties hibernateProperties = new Properties();
-		hibernateProperties.put("hibernate.dialect","org.hibernate.dialect.PostgreSQLDialect");
+		hibernateProperties.put("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
 		hibernateProperties.put("hibernate.show_sql", "true");
-        sessionFactory.setHibernateProperties(hibernateProperties);   
-        return sessionFactory;
-    } 
-    
-    @Bean
-    public MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter() {
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
-        MappingJackson2HttpMessageConverter converter = 
-            new MappingJackson2HttpMessageConverter(mapper);
-        return converter;
-    } 
-	
-	
-//   @Bean
-//   @Autowired
-//   public HibernateTransactionManager transactionManager(SessionFactory sessionFactory) {	  
-//      HibernateTransactionManager txManager= new HibernateTransactionManager();
-//      txManager.setSessionFactory(sessionFactory);	 
-//      return txManager;
-//   }
-//   
-   @Bean
-   public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
-      return new PersistenceExceptionTranslationPostProcessor();
-   }
-	
+		sessionFactory.setHibernateProperties(hibernateProperties);
+		return sessionFactory;
+	}
+
+	@Bean
+	public MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter() {
+		ObjectMapper mapper = new ObjectMapper();
+		mapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
+		MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter(mapper);
+		return converter;
+	}
+
+	// @Bean
+	// @Autowired
+	// public HibernateTransactionManager transactionManager(SessionFactory
+	// sessionFactory) {
+	// HibernateTransactionManager txManager= new HibernateTransactionManager();
+	// txManager.setSessionFactory(sessionFactory);
+	// return txManager;
+	// }
+	//
+	@Bean
+	public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
+		return new PersistenceExceptionTranslationPostProcessor();
+	}
+
 }
-	
